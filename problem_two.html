@@ -1,0 +1,34 @@
+<h1>Make a triangle</h1>
+
+<form id="form-id">
+    Enter size: <input id="number" placeholder="enter size..." type="number">
+    <button>Triangle</button>
+</form>
+
+<div id="show"></div>
+<div id="unexpected"></div>
+
+<script>
+
+let showTriangle = (n) => {
+    let elem = document.querySelector("#show");
+    let visitor = document.querySelector("#unexpected");
+    let i, x;
+    x = ""
+    elem.innerHTML = "" // start by clearing out show area
+    for (i=1; i<=n; i++) {
+        x += "&#9749" // append '*' to x on every iteration
+        elem.innerHTML += x + "<br>"; // append x to elem.innerHTML on every iteration then add page break
+        visitor.innerText = "* an unexpected visitor has arrived *"
+    }
+}
+
+let size = document.querySelector("#form-id");
+size.onsubmit = (e) => {
+    e.preventDefault();
+    let nElem = document.querySelector("#number")
+    let n = parseInt(nElem.value)
+    showTriangle(n)
+};
+
+</script>
